@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class AuthorServiceImpl implements AuthorService{
     
-    AuthorDAO authorDAO;
-    AuthorContactDAO authorContactDAO;
+    private AuthorDAO authorDAO;
+    private AuthorContactDAO authorContactDAO;
 
     public AuthorServiceImpl() {
     }
