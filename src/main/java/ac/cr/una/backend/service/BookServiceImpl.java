@@ -45,7 +45,9 @@ public class BookServiceImpl implements BookService {
 
         List<Book> bList = bookDAO.findAll();
 
-        totalPrice = bList.stream().filter((b) -> (b != null)).map((b) -> b.getPrice()).reduce(totalPrice, (accumulator, _item) -> accumulator + _item);
+        for(Book b : bList){
+            totalPrice += b.getPrice();
+        }
 
         return totalPrice;
     }
