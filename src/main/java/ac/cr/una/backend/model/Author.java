@@ -29,7 +29,7 @@ public class Author {
     @Column(name = "id_paciente", unique = true, nullable = false)
     private int idAuthor;
     
-    @Column(name = "id_paciente", unique = true, nullable = false)
+    @Column(name = "id_paciente", unique = false, nullable = false)
     private String name;
 
     public Author() {
@@ -89,7 +89,5 @@ public class Author {
     public String toString() {
         return "Author{" + "idAuthor=" + idAuthor + ", name=" + name + '}';
     }
-    
-    
     
 }
