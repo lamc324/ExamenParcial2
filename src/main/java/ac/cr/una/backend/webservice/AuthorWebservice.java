@@ -19,6 +19,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -56,7 +57,7 @@ public class AuthorWebservice {
     @GET
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Author getAuthorByName(String name){
+    public Author getAuthorByName(@PathParam("name") String name){
         Author author = null;
         authorDAO = new AuthorDAOImpl();
         authorService = new AuthorServiceImpl(authorDAO);

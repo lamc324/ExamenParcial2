@@ -5,7 +5,6 @@
  */
 package ac.cr.una.backend.dao;
 
-import ac.cr.una.backend.model.AuthorContact;
 import ac.cr.una.backend.model.Book;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +25,10 @@ public class BookDAOImpl implements BookDAO{
 
         session.beginTransaction();
         book = session.createCriteria(Book.class).list();
-        session.delete(book);
-        isDeleted = true;
+        for (Book t : book) {
+            session.delete(t);
+            isDeleted = true;
+        }
         session.getTransaction().commit();
 
         return isDeleted;

@@ -7,14 +7,9 @@ package ac.cr.una.backend.webservice;
 
 import ac.cr.una.backend.dao.BookDAO;
 import ac.cr.una.backend.dao.BookDAOImpl;
-import ac.cr.una.backend.dao.BookTypeDAO;
-import ac.cr.una.backend.dao.BookTypeDAOImpl;
 import ac.cr.una.backend.model.Book;
-import ac.cr.una.backend.model.BookType;
 import ac.cr.una.backend.service.BookService;
 import ac.cr.una.backend.service.BookServiceImpl;
-import ac.cr.una.backend.service.BookTypeService;
-import ac.cr.una.backend.service.BookTypeServiceImpl;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -59,7 +54,7 @@ public class BookWebservice {
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Book createAuthor(Book book){
+    public Book createBook(Book book){
         bookDAO = new BookDAOImpl();
         bookService = new BookServiceImpl(bookDAO);
         
@@ -82,7 +77,7 @@ public class BookWebservice {
     }
     
     @GET
-    @Path("/total")
+    @Path("/totalprice")
     @Produces(MediaType.APPLICATION_JSON)
     public float getTotalPrice() {
         float totalPrice = 0;

@@ -14,6 +14,6 @@
         <mapping class="ac.cr.una.backend.model.Author"></mapping>
         <mapping class="ac.cr.una.backend.model.Book"></mapping>
         <mapping class="ac.cr.una.backend.model.AuthorContact"></mapping>
-		<mapping class="ac.cr.una.backend.model.BookType"></mapping>
+        <mapping class="ac.cr.una.backend.model.BookType"></mapping>
     </session-factory>
 </hibernate-configuration>

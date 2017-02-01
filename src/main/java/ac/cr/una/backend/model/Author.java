@@ -26,10 +26,10 @@ public class Author {
     
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id_paciente", unique = true, nullable = false)
+    @Column(name = "id_author", unique = true, nullable = false)
     private int idAuthor;
     
-    @Column(name = "id_paciente", unique = false, nullable = false)
+    @Column(name = "name", unique = false, nullable = false)
     private String name;
 
     public Author() {

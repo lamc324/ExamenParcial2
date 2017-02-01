@@ -25,8 +25,10 @@ public class AuthorContactDAOImpl implements AuthorContactDAO{
 
         session.beginTransaction();
         authorContact = session.createCriteria(AuthorContact.class).list();
-        session.delete(authorContact);
-        isDeleted = true;
+        for (AuthorContact t : authorContact) {
+            session.delete(t);
+            isDeleted = true;
+        }
         session.getTransaction().commit();
 
         return isDeleted;
