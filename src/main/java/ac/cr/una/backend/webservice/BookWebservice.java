@@ -36,8 +36,6 @@ public class BookWebservice {
     
     private BookDAO bookDAO;
     private BookService bookService;
-    private BookTypeDAO bookTypeDAO;
-    private BookTypeService bookTypeService;
     
     @Context
     private UriInfo context;
@@ -96,16 +94,4 @@ public class BookWebservice {
         return totalPrice;
     }
     
-    @POST
-    @Path("/")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public BookType createAuthor(BookType bookType){
-        bookTypeDAO = new BookTypeDAOImpl();
-        bookTypeService = new BookTypeServiceImpl(bookTypeDAO);
-        
-        bookType = bookTypeService.save(bookType);
-        
-        return bookType;
-    }
 }
