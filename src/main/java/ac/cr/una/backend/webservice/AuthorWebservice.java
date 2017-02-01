@@ -71,8 +71,8 @@ public class AuthorWebservice {
     @Path("/")
     public boolean deleteAll(){
         boolean result;
-        authorDAO = new AuthorDAOImpl();
-        authorService = new AuthorServiceImpl(authorDAO);
+        authorContactDAO = new AuthorContactDAOImpl();
+        authorService = new AuthorServiceImpl(authorContactDAO);
         
         result = authorService.deleteAll();
         
@@ -84,8 +84,8 @@ public class AuthorWebservice {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public AuthorContact createAuthor(AuthorContact authorContact){
-        authorDAO = new AuthorDAOImpl();
-        authorService = new AuthorServiceImpl(authorDAO);
+        authorContactDAO = new AuthorContactDAOImpl();
+        authorService = new AuthorServiceImpl(authorContactDAO);
         
         authorContact = authorService.save(authorContact);
         

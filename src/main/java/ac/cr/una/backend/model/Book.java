@@ -36,11 +36,13 @@ public class Book {
     @Column(name = "id_book", unique = true, nullable = false)
     private int idBook;
     
+//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OneToOne(fetch = FetchType.LAZY)
     @Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
     @JoinColumn(name = "id_author", nullable = false)
     private Author author;
     
+//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OneToOne(fetch = FetchType.LAZY)
     @Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
     @JoinColumn(name = "id_book_type", nullable = false)

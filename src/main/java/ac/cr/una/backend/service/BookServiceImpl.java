@@ -23,8 +23,7 @@ public class BookServiceImpl implements BookService {
     public BookServiceImpl(BookDAO bookDAO) {
         this.bookDAO = bookDAO;
     }
-    
-    
+
     @Override
     public boolean deleteAll() {
         return bookDAO.deleteAll();
@@ -43,15 +42,20 @@ public class BookServiceImpl implements BookService {
     @Override
     public float totalPriceAll() {
         float totalPrice = 0;
-        Book book = new Book();
-        
+
         List<Book> bList = bookDAO.findAll();
-        
-        for(Book b : bList){
-            totalPrice += b.getPrice();
-        }
-        
+
+        totalPrice = bList.stream().filter((b) -> (b != null)).map((b) -> b.getPrice()).reduce(totalPrice, (accumulator, _item) -> accumulator + _item);
+
         return totalPrice;
     }
-    
+
+    public BookDAO getBookDAO() {
+        return bookDAO;
+    }
+
+    public void setBookDAO(BookDAO bookDAO) {
+        this.bookDAO = bookDAO;
+    }
+
 }

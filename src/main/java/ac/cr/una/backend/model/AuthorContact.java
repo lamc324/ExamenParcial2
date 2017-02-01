@@ -34,6 +34,7 @@ public class AuthorContact {
     @Column(name = "id_author_contact", unique = true, nullable = false)
     private int idAuthorContact;
     
+//    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OneToOne(fetch = FetchType.LAZY)
     @Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
     @JoinColumn(name = "id_author", nullable = false)
