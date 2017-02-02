@@ -87,14 +87,14 @@ public class AuthorContact {
     public void setType(String type) {
         this.type = type;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 4;
-        hash = 79 * hash + this.idAuthorContact;
-        hash = 79 * hash + Objects.hashCode(this.author);
-        hash = 79 * hash + Objects.hashCode(this.contact);
-        hash = 79 * hash + Objects.hashCode(this.type);
+        int hash = 7;
+        hash = 97 * hash + this.idAuthorContact;
+        hash = 97 * hash + Objects.hashCode(this.author);
+        hash = 97 * hash + Objects.hashCode(this.contact);
+        hash = 97 * hash + Objects.hashCode(this.type);
         return hash;
     }
 
@@ -113,17 +113,19 @@ public class AuthorContact {
         if (this.idAuthorContact != other.idAuthorContact) {
             return false;
         }
-        if (!Objects.equals(this.author, other.author)) {
-            return false;
-        }
         if (!Objects.equals(this.contact, other.contact)) {
             return false;
         }
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
+        if (!Objects.equals(this.author, other.author)) {
+            return false;
+        }
         return true;
     }
+    
+    
 
     @Override
     public String toString() {

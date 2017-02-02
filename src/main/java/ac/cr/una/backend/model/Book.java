@@ -36,13 +36,11 @@ public class Book {
     @Column(name = "id_book", unique = true, nullable = false)
     private int idBook;
     
-//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OneToOne(fetch = FetchType.LAZY)
     @Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
     @JoinColumn(name = "id_author", nullable = false)
     private Author author;
     
-//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OneToOne(fetch = FetchType.LAZY)
     @Cascade({CascadeType.SAVE_UPDATE, CascadeType.DELETE})
     @JoinColumn(name = "id_book_type", nullable = false)
@@ -116,16 +114,16 @@ public class Book {
     public void setPrice(float price) {
         this.price = price;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 6;
-        hash = 89 * hash + this.idBook;
-        hash = 89 * hash + Objects.hashCode(this.author);
-        hash = 89 * hash + Objects.hashCode(this.type);
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + Objects.hashCode(this.dateRelease);
-        hash = 89 * hash + Objects.hashCode(this.price);
+        int hash = 5;
+        hash = 59 * hash + this.idBook;
+        hash = 59 * hash + Objects.hashCode(this.author);
+        hash = 59 * hash + Objects.hashCode(this.type);
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + Objects.hashCode(this.dateRelease);
+        hash = 59 * hash + Float.floatToIntBits(this.price);
         return hash;
     }
 
@@ -144,23 +142,25 @@ public class Book {
         if (this.idBook != other.idBook) {
             return false;
         }
+        if (Float.floatToIntBits(this.price) != Float.floatToIntBits(other.price)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
         if (!Objects.equals(this.author, other.author)) {
             return false;
         }
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
         if (!Objects.equals(this.dateRelease, other.dateRelease)) {
-            return false;
-        }
-        if (!Objects.equals(this.price, other.price)) {
             return false;
         }
         return true;
     }
+    
+    
 
     @Override
     public String toString() {

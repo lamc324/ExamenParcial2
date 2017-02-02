@@ -55,12 +55,12 @@ public class Author {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
     public int hashCode() {
-        int hash = 2;
-        hash = 89 * hash + this.idAuthor;
-        hash = 89 * hash + Objects.hashCode(this.name);
+        int hash = 5;
+        hash = 23 * hash + this.idAuthor;
+        hash = 23 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -84,6 +84,8 @@ public class Author {
         }
         return true;
     }
+    
+    
 
     @Override
     public String toString() {
